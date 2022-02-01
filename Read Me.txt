@@ -1,0 +1,12 @@
+
+If you see " ? " instead of Japanese Characters, please follow Instructions Below:
+
+Top Left Window, Window Icon > Properties
+
+Fonts that Works:
+	MS GOTHIC
+	MS MINCHO
+	NSIMSUN
+	SUMSUN-EXT8
+
+Tick the BOLD FONTS box too!
