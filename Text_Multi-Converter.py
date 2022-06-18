@@ -1,38 +1,26 @@
 # Written in Python 3.10.0
 
 # Modules
-import os
-import time
+import os,  time
 
 # Variables
-action = [0,0]
-Switch = 0
-Cmethod = ''
+action, Switch, Cmethod = [0,0], 0, ''
 
-MainVer = '1.b4'
-ConvVer = '1.b1'
-MiscVer = '1.b0'
+
+MainVer, ConvVer, MiscVer = '1.b5', '1.b1', '1.b0'
 
 # Converters
 # imported from another File
 # ConvertersDef.py
-import Assets.ConvDef
-ConvDef = Assets.ConvDef
+import Assets.ConvDef as ConvDef
 
 # Fun functions
-import Assets.MiscDef
-MiscDef = Assets.MiscDef
+import Assets.MiscDef as MiscDef
 
 # Defining functions from ConfDef
-clrConverted  = ConvDef.clrConverted
-WriteResult = ConvDef.WriteResult
-Colour = MiscDef.Colour
+clrConverted, WriteResult, Colour  = ConvDef.clrConverted, ConvDef.WriteResult, MiscDef.Colour
 
-QwertyJpKana  = ConvDef.QwertyJpKana
-NumSeq        = ConvDef.NumSeq
-NumSeqComp    = ConvDef.NumSeqComp
-
-
+QwertyJpKana, NumSeq, NumSeqComp  = ConvDef.QwertyJpKana, ConvDef.NumSeq, ConvDef.NumSeqComp
 
 # Self Explanatory
 def clear():
@@ -59,8 +47,7 @@ def splash():
     else:
         print('\n    To change Conversion Method\n    type "~!exit" or "~!leave" (CASE SENSITIVE)\n')
     # Converter Mode Indicator
-    global Cmethod
-    global Switch
+    global Cmethod, Switch
     match action[0]:
         case 1:
             Cmethod = 'NumSeq'
@@ -88,8 +75,7 @@ def splash():
 
 # Responsible for processing the text, writing to a text file
 def ProcessConvert(method):
-    global action
-    global Switch
+    global action, Switch
     Text = ''
     while True:
         clear()
@@ -109,19 +95,18 @@ def ProcessConvert(method):
                                 print('\nInvalid Selection!')
                                 Switch = 0
                                 time.sleep(2)
-
                     except Exception as Err:
                         Colour('0c')
-                        print('ERROR : '+Err)
+                        print(f'ERROR : {Err}')
                         time.sleep(4)
                         Colour('0f')
                 else:
                     Text = input('\nText to Convert : ')
             case _:
+                # Reduntant and has no use or somehow idk or forgot how to trigger this
                 Text = input('\nText to Convert : ').lower()
         if Text == '~!exit' or Text == '~!leave':
-            action[0] = 0
-            Switch = 0
+            action[0], Switch = 0, 0
             break
         else:
             try:
@@ -137,7 +122,7 @@ def ProcessConvert(method):
                             time.sleep(2)
                     case 3:
                         if Text != "":
-                            for Letter in Text.split():
+                            for Letter in list(Text):
                                 method(Letter,Switch)
                             WriteResult(Text)
                             clear()
@@ -145,7 +130,7 @@ def ProcessConvert(method):
                             print("\nYou entered nothing!")
                             time.sleep(2)
             except Exception as Err:
-                print('\nFATAL! : '+'['+str(Err)+']')
+                print(f'\nFATAL! : [{Err}]')
                 Colour('0c')
                 time.sleep(4)
                 clrConverted()
@@ -178,7 +163,7 @@ while True:
             action = [int(input('Select Conversion Method: ')),0]
         except Exception as Err:
             Colour('0c')
-            print('\nSelect Valid Method!\nError : ['+str(Err)+"]")
+            print(f'\nSelect Valid Method!\nError : [{Err}]')
             time.sleep(1)
             Colour('0f')
     ConversionMethod(action[0])
