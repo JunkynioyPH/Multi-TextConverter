@@ -12,15 +12,12 @@ MainVer, ConvVer, MiscVer = '1.b5', '1.b1', '1.b0'
 # Converters
 # imported from another File
 # ConvertersDef.py
-import Assets.ConvDef as ConvDef
+# import Assets.ConvDef as ConvDef
+from Assets.ConvDef import *
 
-# Fun functions
-import Assets.MiscDef as MiscDef
-
-# Defining functions from ConfDef
-clrConverted, WriteResult, Colour  = ConvDef.clrConverted, ConvDef.WriteResult, MiscDef.Colour
-
-QwertyJpKana, NumSeq, NumSeqComp  = ConvDef.QwertyJpKana, ConvDef.NumSeq, ConvDef.NumSeqComp
+# # Fun functions
+# import Assets.MiscDef as MiscDef
+from Assets.MiscDef import *
 
 # Self Explanatory
 def clear():
