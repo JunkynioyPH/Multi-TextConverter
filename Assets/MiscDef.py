@@ -1,6 +1,7 @@
 # Modules
-import os
-import time
+import os, time
+
+MiscVer = '1.b1'
 
 # Fun Funcitons
 

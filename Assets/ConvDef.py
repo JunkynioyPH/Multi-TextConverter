@@ -1,9 +1,8 @@
 # Modules
-import os
-import time
+import os, time
 
 # Defines Converters of letters to something else
-Converted = []
+Converted, ConvVer = [], '1.b2'
 
 # Responsible for writing to a text file
 def WriteResult(ogtext):

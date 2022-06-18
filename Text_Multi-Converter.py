@@ -6,18 +6,13 @@ import os,  time
 # Variables
 action, Switch, Cmethod = [0,0], 0, ''
 
-
-MainVer, ConvVer, MiscVer = '1.b5', '1.b1', '1.b0'
-
 # Converters
-# imported from another File
-# ConvertersDef.py
-# import Assets.ConvDef as ConvDef
 from Assets.ConvDef import *
 
 # # Fun functions
-# import Assets.MiscDef as MiscDef
 from Assets.MiscDef import *
+
+MainVer = '1.b5'
 
 # Self Explanatory
 def clear():
@@ -144,7 +139,7 @@ def ConversionMethod(method):
         case 3:
             ProcessConvert(QwertyJpKana)
         case 177013:
-            MiscDef.N177013()
+            N177013()
             action[0] = 0
         case _:
             print('Select a Conversion Mode!')
